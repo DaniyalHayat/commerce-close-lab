@@ -1,0 +1,12 @@
+rule,source_id,amount_cents,detail,severity,owner,status
+DUPLICATE_EVENT,C00001,13077,Repeated immutable event id; excluded,High,Accounting review,Open
+DUPLICATE_EVENT,R00001,13077,Repeated immutable event id; excluded,High,Accounting review,Open
+ORPHAN_EVENT,R_ORPHAN,10000,No matching order; excluded,High,Accounting review,Open
+INVALID_AMOUNT,C_INVALID,-100,Nonpositive payment; excluded,High,Accounting review,Open
+MISSING_COST,O00013,20979,Revenue recognized; COGS unresolved and not silently zeroed,High,Accounting review,Open
+DUPLICATE_BANK_MATCH,S04,255232,Multiple bank rows; investigate before close,High,Accounting review,Open
+FEE_VARIANCE,S08,25000,Fee differs from illustrative 2.9% plus $0.30 per capture,High,Accounting review,Open
+BANK_VARIANCE,S16,-15000,Actual bank receipt differs from expected net settlement,High,Accounting review,Open
+MISSING_SETTLEMENT,2026-10-11,253175,Expected T+2 settlement absent; remains in processor clearing,High,Accounting review,Open
+THREE_WAY_MISMATCH,P004,10000,PO quantity-times-price differs from invoice; invoice held,High,Accounting review,Open
+UNRECEIVED_INVOICE,P007,22950,Unreceived goods; invoice held outside posted inventory/AP,High,Accounting review,Open

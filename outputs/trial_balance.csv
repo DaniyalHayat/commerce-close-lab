@@ -1,0 +1,12 @@
+account,name,debit_cents,credit_cents
+1000,Cash,8461780,0
+1100,Processor clearing,660480,0
+1200,Inventory,3122817,0
+2000,Accounts payable,0,1310500
+2100,Customer advances,0,690938
+2200,Sales tax payable,0,496707
+3000,Opening equity,0,7000000
+4000,Revenue,0,6493751
+4100,Sales returns,284925,0
+5000,Cost of goods sold,3217683,0
+5100,Processing fees,244211,0

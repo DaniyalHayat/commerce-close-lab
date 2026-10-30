@@ -9,7 +9,7 @@ Can the accounting team support the October close from order and payment evidenc
 4. Filter the exception register to MISSING_SETTLEMENT, then DUPLICATE_BANK_MATCH. Explain timing differences versus errors; a missing expected T+2 settlement is not treated as cash received.
 5. Open the Excel VLOOKUP mapping, SUMIFS trial balance and native PivotTable. End with the close memo's review responsibilities and unresolved missing cost.
 
-## Questions to prepare for
+## Questions 
 
 - Can a journal balance and still be wrong? Yes. Incorrect account, amount, cutoff, or source evidence can still produce equal debits and credits.
 - Why is captured cash not necessarily revenue? The simplified retailer has not yet satisfied its shipment-based obligation. The project states that policy assumption explicitly.

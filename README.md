@@ -79,6 +79,6 @@ One first-party retailer, one currency, one month, full shipments and full refun
 
 `close.py` contains generation, controls and journal logic. `data/` contains five synthetic source extracts, seed 71. `sql/model.sql` defines trial-balance and unbalanced-journal views. `outputs/` contains journals, exceptions, analysis and memo. `workbooks/` contains the Excel model. The interactive dashboard is generated without external assets or analytics tracking.
 
-The project responds to the accounting, controls, analytics and operational-accounting emphasis of Amazon's [Accounting AFRP posting](https://www.amazon.jobs/en/jobs/10507283/amazon-finance-rotational-program-afrp-accounting-early-career-2026). It is not a statement of GAAP compliance, an Amazon assignment, or an endorsed product.
+The project responds to the accounting, controls, analytics and operational-accounting knowledge. It is not a statement of GAAP compliance, an Amazon assignment, or an endorsed product.
 
 MIT licensed.

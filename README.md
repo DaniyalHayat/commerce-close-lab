@@ -1,6 +1,6 @@
 # Commerce Close Lab
 
-A reproducible first-party e-commerce accounting close spanning payments, revenue cutoff, returns, inventory, procurement and bank reconciliation. **All data is synthetic**. This is an independent portfolio project, not an Amazon system or a representation of actual client work.
+A reproducible first-party e-commerce accounting close spanning payments, revenue cutoff, returns, inventory, procurement and bank reconciliation. **All data is synthetic**. This is an independent portfolio project.
 
 ![Accounting close dashboard](docs/dashboard.png)
 

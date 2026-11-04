@@ -51,6 +51,8 @@ def generate():
 def reconcile(data,cutoff=CUTOFF):
     date.fromisoformat(cutoff)
     orders={o['order_id']:o for o in data['orders']}; lines=[];issues=[];seen=set();valid=[]
+    if len(orders) != len(data['orders']):
+        raise ValueError('Order IDs must be unique')
     def issue(rule,key,amount,detail,severity='High'):
         issues.append(dict(rule=rule,source_id=key,amount_cents=amount,detail=detail,severity=severity,owner='Accounting review',status='Open'))
     def post(key,dt,entries):
@@ -59,7 +61,7 @@ def reconcile(data,cutoff=CUTOFF):
         for account,signed in entries:
             lines.append(dict(journal_id=key,date=dt,account=account,account_name=ACCOUNTS[account],debit_cents=max(signed,0),credit_cents=max(-signed,0)))
     post('OPEN','2026-10-01',[('1000',2000000),('1200',5000000),('3000',-7000000)])
-    for e in data['events']:
+    for e in sorted(data['events'], key=lambda e: (e['event_date'], e['kind'] != 'capture', e['event_id'])):
         if e['event_date']>cutoff:continue
         if e['event_id'] in seen:
             issue('DUPLICATE_EVENT',e['event_id'],e['amount_cents'],'Repeated immutable event id; excluded');continue

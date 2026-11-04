@@ -82,3 +82,7 @@ One first-party retailer, one currency, one month, full shipments and full refun
 The project responds to the accounting, controls, analytics and operational-accounting knowledge. It is not a statement of GAAP compliance, or an endorsed product.
 
 MIT licensed.
+
+## November 4 implementation and validation
+
+Payment events are sorted by event date, with captures before refunds at the same timestamp. Reordered inputs preserve balances. Duplicate order IDs fail explicitly. The suite now contains 26 tests. All financial outcomes remain synthetic.

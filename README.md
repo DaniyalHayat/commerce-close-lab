@@ -1,6 +1,6 @@
 # Commerce Close Lab
 
-A reproducible first-party e-commerce accounting close spanning payments, revenue cutoff, returns, inventory, procurement and bank reconciliation. **All data is synthetic**. This is an independent portfolio project.
+An independent month-end accounting case for a synthetic first-party retailer. Python posts the journal entries, and SQL and Excel each calculate the trial balance. The close also checks revenue cutoff, returns, inventory, supplier invoices, and bank deposits.
 
 ![Accounting close dashboard](docs/dashboard.png)
 
@@ -51,6 +51,7 @@ The case assumes transfer of control at shipment under simplified contract terms
 
 ## Controls and exception treatment
 
+- Payment events are ordered by timestamp, with captures before refunds at the same timestamp. Reordering input records preserves balances, and duplicate order IDs are rejected.
 - Duplicate immutable event IDs are excluded without double-posting. Distinct repeated same-kind order events are also rejected within this full-order scope.
 - Nonpositive amounts, orphan events and amount mismatches are quarantined.
 - Unshipped captured orders remain customer advances at cutoff.
@@ -65,7 +66,7 @@ The default case has 11 open exception rows across 10 rules. Bank-to-book differ
 
 ## Validation
 
-- 24 automated tests covering per-journal balance, total balance, cutoff, advances, AP, clearing, all seeded rules, replay idempotency, input immutability and mismatch handling.
+- 26 automated tests cover balanced journals, cutoff, advances, AP, clearing, seeded exceptions, replay, event order, and duplicate orders.
 - Independent native Excel recalculation agrees with Python for revenue, COGS, fees, advances, clearing, AP and book cash to within half a cent.
 - Native Excel formula error scan completed; workbook includes a real PivotTable cache and definition.
 - [Excel verification receipt](outputs/excel_verification.json).
@@ -79,10 +80,4 @@ One first-party retailer, one currency, one month, full shipments and full refun
 
 `close.py` contains generation, controls and journal logic. `data/` contains five synthetic source extracts, seed 71. `sql/model.sql` defines trial-balance and unbalanced-journal views. `outputs/` contains journals, exceptions, analysis and memo. `workbooks/` contains the Excel model. The interactive dashboard is generated without external assets or analytics tracking.
 
-The project responds to the accounting, controls, analytics and operational-accounting knowledge. It is not a statement of GAAP compliance, or an endorsed product.
-
 MIT licensed.
-
-## November 4 implementation and validation
-
-Payment events are sorted by event date, with captures before refunds at the same timestamp. Reordered inputs preserve balances. Duplicate order IDs fail explicitly. The suite now contains 26 tests. All financial outcomes remain synthetic.
